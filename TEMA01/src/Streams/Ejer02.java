@@ -7,7 +7,18 @@ import java.util.function.Consumer;
 “Consumer” para imprimir cada cadena en la lista.*/
 public class Ejer02 {
 
+    //ECHO POR JUANMA
     public static void main(String[] args) {
+
+        Consumer<String> impCadena =  s -> System.out.println(s);
+        List<String> cadenas = List.of("Esther", "Raquel", "German", "Javier");
+
+        cadenas.forEach(impCadena);
+    }
+
+
+    //ECHO POR MI
+    /*public static void main(String[] args) {
 
         List<String> cadenas = List.of("Esther", "Raquel", "German", "Javier");
 
@@ -15,6 +26,6 @@ public class Ejer02 {
         Consumer<String> impCadena = cadena -> System.out.println(cadena);
 
         cadenas.forEach(impCadena);
-    }
+    }*/
 
 }
