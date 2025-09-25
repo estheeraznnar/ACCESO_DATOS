@@ -51,6 +51,7 @@ public class Main {
         empleadosPorDep.getOrDefault(depConsulta, Collections.emptyList())
                 .forEach(emp -> System.out.println(emp.getNombre()));
 
+        /*HECHO POR MI
         //Dado un nombre muesta el departamento
         String  nomConsulta = "Paco";
         Optional<Empleado> buscar = empleados.stream()
@@ -60,7 +61,13 @@ public class Main {
             System.out.println("\n" + nomConsulta + " trabaja en " + buscar.get().getDepartamento());
         }else {
             System.out.println("\nEmpleado no encontrado");
-        }
+        }*/
+
+        System.out.println("---------------");
+        //HECHO POR JUANMA
+        String nomCon = "Paco";
+        empleados.stream().filter(empleado -> empleado.getNombre().equals(nomCon))
+                .map(Empleado::getDepartamento).forEach(System.out::println);
 
     }
 
