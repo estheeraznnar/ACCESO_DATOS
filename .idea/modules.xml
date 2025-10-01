@@ -6,9 +6,12 @@
       <module fileurl="file://$PROJECT_DIR$/EJEMPLOS_JUANMA/EJEMPLOS_JUANMA.iml" filepath="$PROJECT_DIR$/EJEMPLOS_JUANMA/EJEMPLOS_JUANMA.iml" />
       <module fileurl="file://$PROJECT_DIR$/EjemploComparacion/EjemploComparacion.iml" filepath="$PROJECT_DIR$/EjemploComparacion/EjemploComparacion.iml" />
       <module fileurl="file://$PROJECT_DIR$/TEMA01/TEMA01.iml" filepath="$PROJECT_DIR$/TEMA01/TEMA01.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/TEMA01 EJERCICIOS EXAMEN/TEMA01 EJERCICIOS EXAMEN.iml" filepath="$PROJECT_DIR$/TEMA01 EJERCICIOS EXAMEN/TEMA01 EJERCICIOS EXAMEN.iml" />
       <module fileurl="file://$PROJECT_DIR$/TEMA02/TEMA02.iml" filepath="$PROJECT_DIR$/TEMA02/TEMA02.iml" />
       <module fileurl="file://$PROJECT_DIR$/TEMA03/TEMA03.iml" filepath="$PROJECT_DIR$/TEMA03/TEMA03.iml" />
+=======
+>>>>>>> 83d106fea96be2aea34c4d6cae673d94db6b8d49
     </modules>
   </component>
 </project>
