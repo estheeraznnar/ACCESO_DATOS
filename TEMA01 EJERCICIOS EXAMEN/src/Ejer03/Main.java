@@ -30,6 +30,11 @@ public class Main {
         Persona personaMasJoven = personas.stream()
                 .min((p1, p2) -> p1.getEdad() - p2.getEdad()).get();
         System.out.println("La persona mas joven es: " + personaMasJoven);
+
+        //mayores 30
+        List<String> personamayor30 = personas.stream()
+                .filter(p -> p.getEdad() > 30).map(Persona::getNombre).toList();
+        System.out.println(personamayor30);
     }
 
 }
