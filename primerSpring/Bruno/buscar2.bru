@@ -1,0 +1,15 @@
+meta {
+  name: buscar2
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:8080/buscar2?nombre=Esther
+  body: none
+  auth: inherit
+}
+
+params:query {
+  nombre: Esther
+}
