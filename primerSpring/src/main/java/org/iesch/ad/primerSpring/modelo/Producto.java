@@ -6,8 +6,8 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
+/*@AllArgsConstructor
+@NoArgsConstructor*/
 //
 @Builder
 public class Producto {

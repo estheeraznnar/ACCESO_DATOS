@@ -28,10 +28,8 @@ public class ProductosController {
 
     @GetMapping("/producto")
     public Producto dameProducto(){
-        Producto p = new Producto();
-        p.setNombre(nombre);
-        p.setId(15);
-        p.setPrecio(23.5f);
+        Producto p = Producto.builder()
+                .nombre(nombre).id(25).build();
         return p;
     }
 
