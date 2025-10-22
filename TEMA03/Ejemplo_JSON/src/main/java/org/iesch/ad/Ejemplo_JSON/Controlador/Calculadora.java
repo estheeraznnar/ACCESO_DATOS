@@ -1,5 +1,6 @@
-package org.iesch.ad.primerSpring.controlador;
+package org.iesch.ad.Ejemplo_JSON.Controlador;
 
+import org.iesch.ad.Ejemplo_JSON.modelo.Numeros;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ parámetros de entrada y la respuesta pueden ser enviados en formato JSON.*/
 @RestController
 public class Calculadora {
 
+    /*ESTHER*/
     @PostMapping("/operacion/suma")
     public Map<String, Double> suma(@RequestBody Map<String, List<Double>> body){
         List<Double> valores = body.get("valores_suma");
@@ -48,6 +50,24 @@ public class Calculadora {
             res /= valores.get(i);
         }
         return Map.of("resultado", res);
+    }
+
+    /*JUANMA*/
+    @PostMapping("operacion/+")
+    public String suma(@RequestBody Numeros numeros){
+        return "El resultado de la suma es: " + (numeros.getOperando1() + numeros.getOperando2());
+    }
+    @PostMapping("operacion/-")
+    public String resta(@RequestBody Numeros numeros){
+        return "El resultado de la suma es: " + (numeros.getOperando1() - numeros.getOperando2());
+    }
+    @PostMapping("operacion/*")
+    public String multi(@RequestBody Numeros numeros){
+        return "El resultado de la suma es: " + (numeros.getOperando1() * numeros.getOperando2());
+    }
+    @PostMapping("/operacion/division")
+    public String div(@RequestBody Numeros numeros){
+        return "El resultado de la suma es: " + (numeros.getOperando1() / numeros.getOperando2());
     }
 
 }

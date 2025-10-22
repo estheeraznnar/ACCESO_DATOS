@@ -1,0 +1,18 @@
+meta {
+  name: Operaciones
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/operacion/+
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "operando1" : 4,
+    "operando2" : 5
+  }
+}

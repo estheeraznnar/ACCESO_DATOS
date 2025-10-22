@@ -1,4 +1,4 @@
-package org.iesch.ad.primerSpring.controlador;
+package org.iesch.ad.Ejemplo_JSON.Controlador;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,5 +52,9 @@ public class GeneradorContraseñas {
         }
         return contra.toString();
     }
+
+    /*Tambien se puede hacer copiando el util del otro sitio y
+    creando una clase Guardar datos donde metamos la longitud*/
+
 
 }

@@ -1,0 +1,17 @@
+meta {
+  name: Contraseñas
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/genera
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "longitud": 50
+  }
+}

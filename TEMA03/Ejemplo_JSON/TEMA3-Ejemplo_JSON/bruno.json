@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "TEMA3-Ejemplo_JSON",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

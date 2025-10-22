@@ -26,12 +26,12 @@ public class ProductosController {
 
     }
 
-    /*
+
     @GetMapping("/producto")
     public Producto dameProducto(){
         Producto p = Producto.builder()
                 .nombre(nombre).id(25).build();
         return p;
-    }*/
+    }
 
 }
