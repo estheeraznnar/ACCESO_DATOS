@@ -1,0 +1,22 @@
+meta {
+  name: deleteOne
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost:8080/producto/70
+  body: none
+  auth: inherit
+}
+
+body:json {
+   {
+      "id": 270,
+      "nombre": "Chorizo",
+      "precio": 9.45,
+      "descripcion": "chorizo denominacion de origen",
+      "categoria": "Alimentacion",
+      "stock": 20
+    }
+}

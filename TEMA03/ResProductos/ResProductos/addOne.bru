@@ -1,0 +1,21 @@
+meta {
+  name: addOne
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/producto
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre" : "Tomate" ,
+    "precio" : 4.15 ,
+    "descripcion" : "tomtate frito",
+    "categoria" : "Alimentacion"  ,
+    "stock" :  5
+  }
+}

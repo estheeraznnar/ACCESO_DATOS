@@ -1,6 +1,7 @@
 package org.iesch.ad.ResProductos.config;
 
 import org.iesch.ad.ResProductos.modelo.Producto;
+import org.iesch.ad.ResProductos.modelo.Usuario;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -37,6 +38,13 @@ public class configuracion {
         productos.put(7L,Producto.builder().id(7).nombre("Gel").categoria("Hijiene").precio(4.10).descripcion("gel de cuerpo").stock(50).build());
         productos.put(8L,Producto.builder().id(8).nombre("Pilas").categoria("Bazar").precio(2.60).descripcion("++A").stock(50).build());
         return productos;
+    }
+
+    @Bean
+    public Map<Long, Usuario> initUsuarios(){
+        Map<Long, Usuario> usuarios = new HashMap<>();
+        usuarios.put(1L, Usuario.builder().id(1L).nombre("Esther").apellido("Aznar").direccion("micasa").passwd("eaznard14").build());
+        return usuarios;
     }
 
 

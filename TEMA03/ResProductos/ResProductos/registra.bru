@@ -1,0 +1,20 @@
+meta {
+  name: registra
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:8080/usuario
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre" : "German" ,
+    "apellido" : "Sanchez" ,
+    "direccion" : "su casa",
+    "passwd" : "sdfafd564"
+  }
+}
