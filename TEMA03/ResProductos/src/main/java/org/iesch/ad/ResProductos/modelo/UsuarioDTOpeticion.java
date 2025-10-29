@@ -1,0 +1,15 @@
+package org.iesch.ad.ResProductos.modelo;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Builder
+public class UsuarioDTOpeticion {
+    String nombre;
+    String password;
+}
