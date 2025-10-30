@@ -1,0 +1,21 @@
+meta {
+  name: ActualizaEstudiante
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/api/estudiantes/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "Paco",
+    "apellidos": "Sanchez",
+    "email": "psanchez@iesch.org",
+    "edad": 19,
+    "ciclo": "DAM"
+  }
+}
