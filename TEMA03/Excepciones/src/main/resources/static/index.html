@@ -157,9 +157,9 @@
                 estudiantes.forEach(estudiante => {
                     const fila = document.createElement('tr');
                     fila.innerHTML = `
-                    <td>($estudiante.id)</td>
-                    <td>($estudiante.nombre)</td>
-                    <td>($estudiante.apellidos)</td>`;
+                    <td>${estudiante.id}</td>
+                    <td>${estudiante.nombre}</td>
+                    <td>${estudiante.apellidos}</td>`;
 
                     tbody.appendChild(fila);
                 });
@@ -170,7 +170,7 @@
 
                 // Mostrar error
                 errorMessage.innerHTML = `<div class="error"><strong>Error al cargar los datos</strong>
-                $(error.message)<br>
+                ${error.message}<br>
                 Asegurate que esta corriendo el server</div>`;
                 console.error('Error: ', error);
             }

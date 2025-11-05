@@ -23,6 +23,7 @@ public class EstudianteControlador {
     EstudianteService estudiantesService;
 
     @GetMapping
+    @CrossOrigin(origins =  "http://192.168.50.253")
     public ResponseEntity<List<EstudianteResponseDTO>>  obtenerTodos(){
         List<EstudianteResponseDTO> estudianteList = estudiantesService.obtenerTodos();
 
