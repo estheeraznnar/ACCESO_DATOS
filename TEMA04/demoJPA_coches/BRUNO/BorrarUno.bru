@@ -1,0 +1,21 @@
+meta {
+  name: BorrarUno
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:8080/api/coches/5
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "marca" : "Peugote",
+    "modelo" : "2008",
+    "matricula" : "2511 - RAD",
+    "cilindrada" : 1895.9,
+    "potencia" : 120
+  }
+}

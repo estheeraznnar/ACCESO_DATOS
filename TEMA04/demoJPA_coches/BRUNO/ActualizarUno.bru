@@ -1,0 +1,22 @@
+meta {
+  name: ActualizarUno
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:8080/api/coches
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id" : 2,
+    "marca" : "Peugote",
+    "modelo" : "2004",
+    "matricula" : "2511 - RAD",
+    "cilindrada" : 1895.9,
+    "potencia" : 120
+  }
+}

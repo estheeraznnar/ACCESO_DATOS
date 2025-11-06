@@ -1,0 +1,22 @@
+meta {
+  name: GuardarCoches
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/coches
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "marca" : "VW",
+    "modelo" : "golf",
+    "matricula" : "2511 - RAD",
+    "cilindrada" : 1895.9,
+    "potencia" : 120,
+    "color" : "verde"
+  }
+}

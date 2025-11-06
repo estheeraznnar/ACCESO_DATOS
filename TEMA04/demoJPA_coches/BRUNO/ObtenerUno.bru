@@ -1,0 +1,21 @@
+meta {
+  name: ObtenerUno
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/api/coches/5
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "marca" : "Peugote",
+    "modelo" : "2008",
+    "matricula" : "2511 - RAD",
+    "cilindrada" : 1895.9,
+    "potencia" : 120
+  }
+}
