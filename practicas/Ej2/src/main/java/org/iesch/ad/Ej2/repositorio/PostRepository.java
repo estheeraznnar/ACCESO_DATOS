@@ -1,0 +1,10 @@
+package org.iesch.ad.Ej2.repositorio;
+
+import org.iesch.ad.Ej2.modelo.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PostRepository extends JpaRepository<Post, Long> {
+
+}

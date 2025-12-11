@@ -65,4 +65,7 @@ public class Empleado {
                 ", salario=" + salario +
                 '}';
     }
+    public String toFileFormat() {
+        return nombre + "," + edad + "," + salario;
+    }
 }

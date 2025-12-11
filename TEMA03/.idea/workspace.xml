@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="53495e88-7cf7-40d0-ac05-b91f7794ce03" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../EJEMPLOS_JUANMA/config.propiedades" beforeDir="false" afterPath="$PROJECT_DIR$/../config.propiedades" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEMA03 EJERCICIOS/Ejercicio01/src/main/java/org/iesch/ad/Ejercicio01/controller/ProductoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEMA03 EJERCICIOS/Ejercicio01/src/main/java/org/iesch/ad/Ejercicio01/modelo/Producto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEMA03 EJERCICIOS/Ejercicio01/src/main/java/org/iesch/ad/Ejercicio01/service/ProductoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEMA03 EJERCICIOS/TEMA03 EJERCICIOS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TEMA01 EJERCICIOS EXAMEN/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TEMA01 EJERCICIOS EXAMEN/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,21 +22,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "estheeraznnar"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;estheeraznnar&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/estheeraznnar/ACCESO_DATOS.git",
-    "accountId": "96c1a0fc-6c2c-4667-95de-7759eda66718"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/estheeraznnar/ACCESO_DATOS.git&quot;,
+    &quot;accountId&quot;: &quot;9087c988-2435-4ba4-9223-571132e3e937&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="33CJyqYdJ8qZL4x4Hvgdxcsndxs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,10 +47,13 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/dam2/_ESTHER_/ACCESO_DATOS/TEMA03"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/_ESTHER_/DAM2/ACCESO DATOS/ACCESO_DATOS/practicas/Ej1"
   }
 }]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="53495e88-7cf7-40d0-ac05-b91f7794ce03" name="Changes" comment="" />

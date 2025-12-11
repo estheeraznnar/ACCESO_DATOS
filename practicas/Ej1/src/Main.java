@@ -1,6 +1,6 @@
 import modelo.Empleado;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 
 import java.nio.file.Path;
@@ -19,18 +19,35 @@ public class Main {
 
         String inputfile = "employees.txt";
         String outputfile = "filtered_employes.txt";
-        int min_edad = 20;
-        int max_edad = 40;
-        double min_salario = 50000;
 
         try {
             List<Empleado> empleados = cargarEmpleados(inputfile);
 
-            System.out.println("1");
-            List<Empleado> empleados1 = empleados.stream().filter(e -> e.getEdad()>=min_edad && e.getEdad() <= max_edad && e.getSalario()>=min_salario)
-                    .toList();
+            System.out.println("Todos empleados leidos: " + empleados.size());
 
-            empleados1.sou
+            System.out.println("1- EMPLEADOS SIN ORDENAR");
+            List<Empleado> empleados1 = empleados.stream()
+                    .filter(e -> e.getEdad()>=20 && e.getEdad() <=40 && e.getSalario()>=5000)
+                    .collect(Collectors.toList());
+            System.out.println("Empleados filtrados sin ordenar: " + empleados1.size());
+            empleados1.stream().forEach(System.out::println);
+
+            System.out.println("2- EMPLEADOS FILTRADOS Y ORDENADOS POR SALARIO");
+            List<Empleado> empleados2 = empleados.stream()
+                            .filter(e -> e.getEdad()>=20 && e.getEdad()<=40 && e.getSalario()>=5000)
+                            .sorted(Comparator.comparingDouble(Empleado::getSalario).reversed())
+                            .collect(Collectors.toList());
+
+            System.out.println("Empleados filtrados y ordenados: " + empleados2.size());
+            empleados2.stream().forEach(System.out::println);
+
+            //guardo los empleados
+            guardarEmpleados(empleados2, outputfile);
+            System.out.println("\n Proceso terminado");
+            System.out.println("Archivo guardado en: " + outputfile);
+        }catch (IOException e){
+            System.err.println("Error al procesar archivos: " + e.getMessage());
+            e.printStackTrace();
         }
 
         /*try{
@@ -84,45 +101,44 @@ public class Main {
 
     }
 
-    private static List<Empleado> cargarEmpleados(String inputfile) throws IOException {
-        Path path = Paths.get(inputfile);
-        List<Empleado> empleados = new ArrayList<>();
-        Stream<String> lines = Files.lines(path);
+    private static void guardarEmpleados(List<Empleado> empleados2, String outputfile) throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputfile))){
+            bw.write("Nombre Apellido,Edad,Salario");
+            bw.newLine();
 
-        lines.forEach(line -> {
-            empleados.add(parsearEmpleado(line));
-
-        });
-
-        return null;
-
-
-        //Me lee las listas del path
-        /*return Files.lines(path)
-                .map(String::trim)
-                .filter(linea ->!linea.isEmpty())
-                .map(Main::parsearEmpleado(linea))
-                .filter(Objects::nonNull)   //Filtra cualquier linea mal formada
-                .toList();*/
-    }
-
-    private static Empleado parsearEmpleado(String linea) {
-        try {
-
-            String[] datos = linea.split(",");
-
-            if (datos.length < 3){
-                return null;
+            for (Empleado empleado: empleados2){
+                bw.write(empleado.toFileFormat());
+                bw.newLine();
             }
-
-            String nombreCompleto = datos[0].trim();
-            int edad = Integer.parseInt(datos[1].trim());
-            double salario = Double.parseDouble(datos[2].trim());
-            return new Empleado(nombreCompleto, edad, salario);
-
-        }catch (Exception e){
-            System.err.println("formato no valido");
         }
-        return null;
     }
+
+    private static List<Empleado> cargarEmpleados(String inputfile) throws IOException {
+        List<Empleado> empleados = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(inputfile))){
+            String linea;
+            boolean primeralinea = true;
+
+            while ((linea = br.readLine()) != null){
+                //Salto la linea del encabezdo
+                if (primeralinea){
+                    primeralinea = false;
+                    continue;
+                }
+
+                String[] datos = linea.split(",");
+                if (datos.length == 3){
+                    String nombreCompleto = datos[0].trim();
+                    int edad = Integer.parseInt(datos[1].trim());
+                    double salario = Double.parseDouble(datos[2].trim());
+
+                    empleados.add(new Empleado(nombreCompleto, edad, salario));
+                }
+            }
+        }
+        return empleados;
+    }
+
+
 }
