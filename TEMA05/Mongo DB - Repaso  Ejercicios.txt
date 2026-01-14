@@ -90,19 +90,216 @@ Ejercicio 3:
 				},
 			])
 	18-	Listar creadores y cuántos posts han publicado
+			db.blog_posts.aggregate([
+				{$group:
+					{
+						_id: "$creador",
+						numeroPost: {$count:{}}
+					}
+				},
+			])
 			
+			(ORDENAR POR NUMERO DE POST)
+			db.blog_posts.aggregate([
+				{$group:
+					{
+						_id: "$creador",
+						numeroPost: {$count:{}}
+					}
+				},
+				{
+					$sort: {numeroPost: -1}
+				}
+			])
 	19-	"Desenrollar" comentarios (uno por documento)
+			db.blog_posts.aggregate([
+				{$unwind:"$comments"}
+			])
 			
+			(EL DOCUMENTO RESULTANTE DEBE CONTENER: CREADOR, CONTENIDO,
+			COMENTARIO_CREADOR, COMENTARIO_TEXTO, FECHA_COMENTARIO)
+			db.blog_posts.aggregate([
+				{$unwind:"$comments"},
+				{$project:
+					{
+						post_creador: "$creador",
+						post_contenido: "$contenido",
+						comentario_creador: "$comments.creador",
+						comentario_texto: "$comments.comentario",
+						comentario_fecha: "$comments.fecha",
+					},
+				},
+			])
 	20-	Encontrar los usuarios más activos comentando
-			
+			db.blog_posts.aggregate([
+				{$unwind:"$comments"},
+				{$group:
+					{
+						_id:"$comments.creador",
+						numeroComentarios: {$count: {}}
+					}
+				},
+				{$sort: 
+					{numeroComentarios: -1}
+				},
+				{$limit: 5}
+			])
 	21-	Posts con sus comentarios ordenados por likes (descendente)
+			db.blog_posts.aggregate([
+				{$unwind:"$comments"},
+				{$sort: {"comments.likes": -1}},  //aqui no se pone dolar porque es un dato de base de datos	
+			])
 			
+			//(AGRUPANDO LOS POST)
+			/*db.blog_posts.aggregate([
+				{$unwind:"$comments"},
+				{$sort: {"comments.likes": -1}},
+				
+			])*/
 	22-	Total de likes en posts por cada tag
+			db.blog_posts.aggregate([
+				{$unwind:"$tags"},
+				{$group:
+					{
+						_id: "$tags",
+						total_likes: {$sum: "$likes"}
+					}
+				},
+			])
 			
+			(AÑADIENDO EL NUMERO DE POST Y ORDENAR)
+			db.blog_posts.aggregate([
+				{$unwind:"$tags"},
+				{$group:
+					{
+						_id: "$tags",
+						total_likes: {$sum: "$likes"},
+						numero_post: {$count: {}}
+					}
+				},
+				{$sort: {total_likes: -1}},
+			])
 	23-	Posts publicados por mes
-			
+			db.blog_posts.aggregate([
+				{$project:
+					{
+						mes: {$month: "$fecha"},
+						año: {$year: "$fecha"}
+					}
+				},
+				{$group:
+					{
+						_id: {año: "$año", mes: "$mes"},
+						cantidad: {$count: {}}
+					}
+				},
+				{$sort: {"_id.año": 1, "_id.mes": 1}} //ordenar por año y mes
+			])
 	24-	Buscar posts con comentarios de un usuario específico y mostrar solo esos
-		comentarios
+		comentarios ESTA NO ENTRA PARA EXAMEN NO ESTUDIAR
+			db.blog_posts.aggregate([
+				{$match:
+					{"comments.creador": "Ana García"}
+				},
+				{$project:
+					{
+						comments: {
+							$filter:{
+								input: "$comments",
+								as: "comment",
+								cond: {$eq: ["$$comment.creador", "Ana García"]}
+							}
+						}
+					}
+				},
+			])
 			
-	25-	Estadísticas completas de interacción
+			(CON COSAS EXTRAS)
+			db.blog_posts.aggregate([
+				{$match:
+					{"comments.creador": "Ana García"}
+				},
+				{$project:
+					{
+						creador: 1,
+						contenido: 1,
+					}
+				},
+			])
+	25-	Estadísticas completas de interacción TAMPOCO ENTRA TAMPOCO ESTUDIAR
+		--que me piden, iteraciones: Movimiento por parte de los usuarios
+		--lies del post, numero de comentarios y numero de likes de cada comentario
+			db.blog_posts.aggregate([
+				{$project:
+					{
+						creador: 1,
+						likes: 1,
+						numeroComentarios: {$size: "$comments"},
+						likesEnComentarios: {$sum: "$comments.likes"}
+					}
+				},
+				{$addFields:
+					{
+						total_Iteraciones:{
+							$add: ["$likes", "$numeroComentarios", "$likesEnComentarios"]
+						}
+					}
+				},
+				{$sort:
+					{total_Iteraciones:-1}
+				}
+			])
 			
+Ejercicio 4: (ACTUALIZACIONES)
+
+	26-	Añadir un nuevo comentario a un post específico ej: al post 8
+			db.blog_posts.updateOne(
+				{_id:8},
+				{$push: 
+					{
+						comments:{
+							id_comment: 1111,
+							creador: "Usuario_Esther",
+							comentario: "Definicion perfecta",
+							fecha: new Date(),
+							likes: 0
+						},
+					},
+				},
+			)
+	27-	Incrementa los likes del post 1
+			db.blog_posts.updateOne(
+				{_id:1},
+				{$inc: 
+					{
+						likes: 1
+					},
+				},
+			)
+	28-	Incrementar likes de un comentario específico ej: post 10, comentario 1
+			db.blog_posts.updateOne(
+				{_id:10, "comments.id_comment":1},
+				{$inc: 
+					{
+						"comments.$.likes": 1
+					},
+				},
+			)
+	29-	Añadir un tag a un post ej: id 1, añadimos el tag aventura
+			db.blog_posts.updateOne(
+				{_id:1},
+				{$addToSet: 
+					{
+						tags: "Japon"
+					},
+				},
+			)
+	30-	Eliminar un comentario específico post3: comentario 2
+			db.blog_posts.updateOne(
+				{_id:3},
+				{$pull:
+					{
+						comments:{id_comment:2}
+					}
+				}
+			)
