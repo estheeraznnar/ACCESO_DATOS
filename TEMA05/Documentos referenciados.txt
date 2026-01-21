@@ -397,12 +397,114 @@ EJERCICIOS:
 		
 		db.prestamos.aggregate([
 			{$group:
-				_id: "$usuario_id",
-				total_prestamo: {$sum: 1}
-			}
+				{
+					_id: "$usuario_id",
+					total_prestamo: {$sum: 1},
+					prestamos_activos: {
+						//estoy sumando y hago una condicion que si devuelto es igual a false suma 1 y sino suma 0
+						$sum: {$cond: [{$eq: ["$devuelto", false]}, 1,0]} 
+					}
+				}
+			},
+			//esto es para que me muestre los que tenga mas de un prestamo, lo hacemos despues de calcularlo 
+			//para poder saber cual es.
+			{$match:
+				{total_prestamo: {$gt:1}}
+			},
+			//quiero que me muestre el nombre del usuario
+			{$lookup:
+				{
+					from: "usuarios",
+					localField: "_id",
+					foreignField: "_id",
+					as: "usuario"
+				}
+			},
+			{$unwind: "$usuario"},
+			//muestro lo que quiero
+			{$project:
+				{
+					"usuario.nombre": 1,
+					"usuario.email": 1,
+					"total_prestamo": 1,
+					"prestamos_activos": 1,
+					_id: 0
+				}
+			},
+			//ordenamos
+			{$sort: {total_prestamo: -1}}
 		])
 		
 	17. Muestra la editorial con el libro más largo y su autor
 		
+		db.libros.aggregate([
+				//ordeno los libros por paginas de mas a menos
+			{$sort: {paginas: -1}},
+				//lo limito a uno para que solo muestre el primero
+			{$limit: 1},
+			{$lookup:
+				{
+					from: "autores",
+					localField: "autor_id",
+					foreignField: "_id",
+					as: "autor"
+				}
+			},
+			{$unwind: "$autor"},
+			{$lookup:
+				{
+					from: "editoriales",
+					localField: "editorial_id",
+					foreignField: "_id",
+					as: "editorial"
+				}
+			},
+			{$unwind: "$editorial"},
+			{$project:
+				{
+					"editorial.nombre": 1,
+					"editorial.pais": 1,
+					"autor.nombre": 1,
+					"autor.nacionalidad": 1,
+					"titulo": 1,
+					"paginas": 1,
+					_id: 0
+				}
+			}
+		])
+		
 	18. Encuentra los libros que nunca han sido prestados.
+		
+		db.libros.aggregate([
+			{$lookup:
+				{
+					//se hace asi para saber si un libro se ha prestado o no 
+					from: "prestamos",
+					localField: "_id",
+					foreignField: "libro_id",
+					as: "prestamo"
+				}
+			},
+			{$match: 
+				{prestamo: {$size: 0}} //no tenga prestamos
+			},
+			{$lookup:
+				{
+					//se hace asi para saber si un libro se ha prestado o no 
+					from: "autores",
+					localField: "autor_id",
+					foreignField: "_id",
+					as: "autor"
+				}
+			},
+			{$unwind: "$autor"},
+			{$project:
+				{
+					"titulo": 1,
+					"autor.nombre": 1,
+					"año_publicacion": 1,
+					_id:0
+				}
+			}
+		])
 		
