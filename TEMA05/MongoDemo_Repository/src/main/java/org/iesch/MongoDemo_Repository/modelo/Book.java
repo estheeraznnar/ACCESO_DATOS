@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Document
+@Document(collation = "libros")
 public class Book {
 
     @Id
