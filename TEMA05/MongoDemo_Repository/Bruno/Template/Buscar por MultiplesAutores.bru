@@ -1,0 +1,15 @@
+meta {
+  name: Buscar por MultiplesAutores
+  type: http
+  seq: 10
+}
+
+get {
+  url: http://localhost:8080/api/books/template/search/multiples-autores
+  body: json
+  auth: inherit
+}
+
+body:json {
+  ["Programacion", "Java"]
+}

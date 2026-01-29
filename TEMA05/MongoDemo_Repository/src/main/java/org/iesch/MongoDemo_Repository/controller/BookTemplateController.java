@@ -4,10 +4,7 @@ import org.iesch.MongoDemo_Repository.modelo.Book;
 import org.iesch.MongoDemo_Repository.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -73,6 +70,58 @@ public class BookTemplateController {
     @GetMapping("/search/precio-anio")
     public ResponseEntity<List<Book>> buscarPorPrecioAnio(@RequestParam Double precio, @RequestParam Integer anio){
         return ResponseEntity.ok(bookService.findByAPrecioAnio(precio, anio));
+    }
+
+    /**
+     * Buscar libros por Titulo y categoria
+     * Titulo ->String, regex
+     * Categoria es String[]
+     * GET api/books/template/search/titulo-categoria?titulo=XXXX&categoria=ZZZZ
+     */
+
+    @GetMapping("/search/titulo-categoria")
+    public ResponseEntity<List<Book>> buscarPorTituloCategoria(@RequestParam String titulo, @RequestParam String  categorias){
+        return ResponseEntity.ok(bookService.findByTituloCategoria(titulo, categorias));
+    }
+
+    /**
+     * Buscar por multiples categorias
+     * Body: ["Programacion", "Java"]
+     * Envio un array en vez de string
+     * POST api/books/template/search/categorias-multiples
+     */
+    @PostMapping("/search/categorias-multiples")
+    public ResponseEntity<List<Book>> buscarPorMultiplesCategorias(@RequestBody List<String> categoriasMultiples){
+        return ResponseEntity.ok(bookService.buscarPorCategoriasMultiples(categoriasMultiples));
+    }
+
+    /**
+     * Buscar por precio maximo ordenado por año desc.
+     * GET api/books/template/search/precio-maximo-ordenado?precio=XXXX
+     */
+    @GetMapping("/search/precio-maximo-ordenado")
+    public ResponseEntity<List<Book>> buscarPorPrecioMaxOrdenado(@RequestParam Double precio){
+        return ResponseEntity.ok(bookService.buscarPorPrecioMaxOrdenado(precio));
+    }
+
+    /**
+     * Buscar libros que tengan multipes autores
+     * GET api/books/template/search/multiples-autores
+     * la hacemos sin pasarle ningun parametro
+     */
+    @GetMapping("/search/multiples-autores")
+    public ResponseEntity<List<Book>> buscarPorMultiplesAutores(){
+        return ResponseEntity.ok(bookService.buscarPorMultiplesAutores());
+    }
+
+    /**
+     * Contar lobros por categoria (cuantos libros hay en x categoria)
+     * Get api/books/template/search/contar-categoria?categoria=XXXX
+     * Tendra que ser Long para que lo pueda contar ya que si es un lista no puede contar
+     */
+    @GetMapping("/search/contar-categoria")
+    public ResponseEntity<Long> contarPorCategoria(@RequestParam String categoria){
+        return ResponseEntity.ok(bookService.contarPorCategoria(categoria));
     }
 
 }

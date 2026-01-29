@@ -1,0 +1,16 @@
+meta {
+  name: Buscar por Titulo Categoria
+  type: http
+  seq: 7
+}
+
+get {
+  url: http://localhost:8080/api/books/template/search/titulo-categoria?titulo=Java&categorias=Programación
+  body: none
+  auth: inherit
+}
+
+params:query {
+  titulo: Java
+  categorias: Programación
+}
