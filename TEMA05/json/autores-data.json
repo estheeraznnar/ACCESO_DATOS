@@ -1,0 +1,78 @@
+db.autores.insertMany([
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c1"),
+    "nombre": "Gabriel García Márquez",
+    "nacionalidad": "Colombia"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c2"),
+    "nombre": "Miguel de Cervantes",
+    "nacionalidad": "España"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c3"),
+    "nombre": "George Orwell",
+    "nacionalidad": "Reino Unido"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c4"),
+    "nombre": "Antoine de Saint-Exupéry",
+    "nacionalidad": "Francia"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c5"),
+    "nombre": "Robert C. Martin",
+    "nacionalidad": "Estados Unidos"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c6"),
+    "nombre": "Erich Gamma",
+    "nacionalidad": "Suiza"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c7"),
+    "nombre": "Richard Helm",
+    "nacionalidad": "Estados Unidos"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c8"),
+    "nombre": "Ralph Johnson",
+    "nacionalidad": "Estados Unidos"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1c9"),
+    "nombre": "John Vlissides",
+    "nacionalidad": "Estados Unidos"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1ca"),
+    "nombre": "Dan Brown",
+    "nacionalidad": "Estados Unidos"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1cb"),
+    "nombre": "Carlos Ruiz Zafón",
+    "nacionalidad": "España"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1cc"),
+    "nombre": "Yuval Noah Harari",
+    "nacionalidad": "Israel"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1cd"),
+    "nombre": "Joshua Bloch",
+    "nacionalidad": "Estados Unidos"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1ce"),
+    "nombre": "Paulo Coelho",
+    "nacionalidad": "Brasil"
+  },
+  {
+    "_id": ObjectId("60a1b1c1e4b0a1c1e4b0a1cf"),
+    "nombre": "Craig Walls",
+    "nacionalidad": "Estados Unidos"
+  }
+])
+

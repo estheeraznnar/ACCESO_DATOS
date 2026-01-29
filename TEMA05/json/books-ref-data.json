@@ -1,0 +1,151 @@
+db.libros_ref.insertMany([
+  {
+    "titulo": "Cien años de soledad",
+    "isbn": "978-0307474728",
+    "anioPublicacion": 1967,
+    "precio": 18.50,
+    "numeroPaginas": 417,
+    "editorial": "Editorial Sudamericana",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c1")
+    ],
+    "categorias": ["Ficción", "Realismo mágico", "Literatura latinoamericana"]
+  },
+  {
+    "titulo": "Don Quijote de la Mancha",
+    "isbn": "978-8491050858",
+    "anioPublicacion": 1605,
+    "precio": 25.00,
+    "numeroPaginas": 863,
+    "editorial": "Real Academia Española",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c2")
+    ],
+    "categorias": ["Clásicos", "Ficción", "Aventura"]
+  },
+  {
+    "titulo": "1984",
+    "isbn": "978-0451524935",
+    "anioPublicacion": 1949,
+    "precio": 15.99,
+    "numeroPaginas": 328,
+    "editorial": "Signet Classics",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c3")
+    ],
+    "categorias": ["Distopía", "Ficción", "Ciencia ficción"]
+  },
+  {
+    "titulo": "El principito",
+    "isbn": "978-0156012195",
+    "anioPublicacion": 1943,
+    "precio": 12.50,
+    "numeroPaginas": 96,
+    "editorial": "Harcourt",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c4")
+    ],
+    "categorias": ["Infantil", "Filosofía", "Clásicos"]
+  },
+  {
+    "titulo": "Clean Code",
+    "isbn": "978-0132350884",
+    "anioPublicacion": 2008,
+    "precio": 42.00,
+    "numeroPaginas": 464,
+    "editorial": "Prentice Hall",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c5")
+    ],
+    "categorias": ["Programación", "Tecnología", "Desarrollo de software"]
+  },
+  {
+    "titulo": "Design Patterns",
+    "isbn": "978-0201633610",
+    "anioPublicacion": 1994,
+    "precio": 54.99,
+    "numeroPaginas": 395,
+    "editorial": "Addison-Wesley",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c6"),
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c7"),
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c8"),
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1c9")
+    ],
+    "categorias": ["Programación", "Tecnología", "Arquitectura de software"]
+  },
+  {
+    "titulo": "El código Da Vinci",
+    "isbn": "978-0307474278",
+    "anioPublicacion": 2003,
+    "precio": 16.95,
+    "numeroPaginas": 454,
+    "editorial": "Doubleday",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1ca")
+    ],
+    "categorias": ["Thriller", "Misterio", "Ficción"]
+  },
+  {
+    "titulo": "La sombra del viento",
+    "isbn": "978-8408163374",
+    "anioPublicacion": 2001,
+    "precio": 19.90,
+    "numeroPaginas": 576,
+    "editorial": "Planeta",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1cb")
+    ],
+    "categorias": ["Ficción", "Misterio", "Literatura española"]
+  },
+  {
+    "titulo": "Sapiens: De animales a dioses",
+    "isbn": "978-8499926223",
+    "anioPublicacion": 2011,
+    "precio": 22.90,
+    "numeroPaginas": 496,
+    "editorial": "Debate",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1cc")
+    ],
+    "categorias": ["Historia", "Antropología", "No ficción"]
+  },
+  {
+    "titulo": "Effective Java",
+    "isbn": "978-0134685991",
+    "anioPublicacion": 2017,
+    "precio": 49.99,
+    "numeroPaginas": 416,
+    "editorial": "Addison-Wesley",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1cd")
+    ],
+    "categorias": ["Programación", "Java", "Tecnología"]
+  },
+  {
+    "titulo": "El alquimista",
+    "isbn": "978-0062315007",
+    "anioPublicacion": 1988,
+    "precio": 14.95,
+    "numeroPaginas": 208,
+    "editorial": "HarperOne",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1ce")
+    ],
+    "categorias": ["Ficción", "Filosofía", "Autoayuda"]
+  },
+  {
+    "titulo": "Spring Boot in Action",
+    "isbn": "978-1617292545",
+    "anioPublicacion": 2016,
+    "precio": 44.99,
+    "numeroPaginas": 264,
+    "editorial": "Manning",
+    "autores": [
+      ObjectId("60a1b1c1e4b0a1c1e4b0a1cf")
+    ],
+    "categorias": ["Programación", "Java", "Spring", "Tecnología"]
+  }
+]
+
+)
