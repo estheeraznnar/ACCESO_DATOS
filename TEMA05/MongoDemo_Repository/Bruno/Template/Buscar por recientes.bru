@@ -1,0 +1,15 @@
+meta {
+  name: Buscar por recientes
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://127.0.0.1:8080/api/books/template/search/recientes?anio=2005
+  body: none
+  auth: inherit
+}
+
+params:query {
+  anio: 2005
+}

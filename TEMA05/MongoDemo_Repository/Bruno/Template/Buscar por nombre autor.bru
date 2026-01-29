@@ -1,0 +1,15 @@
+meta {
+  name: Buscar por nombre autor
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://127.0.0.1:8080/api/books/template/search/autor?nombre=Gabriel García Márquez
+  body: none
+  auth: inherit
+}
+
+params:query {
+  nombre: Gabriel García Márquez
+}

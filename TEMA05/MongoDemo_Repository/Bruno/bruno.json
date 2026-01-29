@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Bruno",
+  "name": "Bruno(MongoDemo)",
   "type": "collection",
   "ignore": [
     "node_modules",
