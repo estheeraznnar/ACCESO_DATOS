@@ -1,0 +1,15 @@
+meta {
+  name: Buscar Nacionalidad
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://127.0.0.1:8080/api/autores/search/nacionalidad?pais=Es
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pais: Es
+}

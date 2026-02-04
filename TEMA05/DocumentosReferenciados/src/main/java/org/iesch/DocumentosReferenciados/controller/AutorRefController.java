@@ -78,5 +78,19 @@ public class AutorRefController {
     }
 
 
+    @GetMapping("/search/nombre")
+    public ResponseEntity<List<AutoresRef>> buscarPorNombre(@RequestParam String nombre){
+        return ResponseEntity.ok(autoresRefRepository.findByNombreContainingIgnoreCase(nombre));
+    }
+
+    @GetMapping("/search/nacionalidad")
+    public ResponseEntity<List<AutoresRef>> buscarPorNacionalidad(@RequestParam String pais){
+        return ResponseEntity.ok(autoresRefRepository.findByNacionalidadContainingIgnoreCase(pais));
+    }
+
+    @PostMapping("/search/nacionalidades")
+    public ResponseEntity<List<AutoresRef>> buscarPorNacionalidades(@RequestBody List<String> paises){
+        return ResponseEntity.ok(autoresRefRepository.findByNacionalidadIn(paises));
+    }
 
 }

@@ -1,0 +1,19 @@
+meta {
+  name: Buscar Nacionalidades
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://127.0.0.1:8080/api/autores/search/nacionalidades?paises=
+  body: json
+  auth: inherit
+}
+
+params:query {
+  paises: 
+}
+
+body:json {
+  ["Colombia", "España"]
+}

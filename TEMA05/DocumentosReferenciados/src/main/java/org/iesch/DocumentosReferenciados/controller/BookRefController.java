@@ -39,7 +39,7 @@ public class BookRefController {
     }
 
     /**
-     * Crear un nuevo autor
+     * Crear un nuevo libro
      * POST /api/books
      */
     @PostMapping
@@ -78,5 +78,21 @@ public class BookRefController {
     }
 
 
+    /**
+     * Buscar libros por id del autor
+     */
+    @GetMapping("/search/{autor_id}")
+    public ResponseEntity<List<BookRef>> buscarLibroPorIdAutor(@PathVariable String autor_id){
+        return ResponseEntity.ok(bookRefRepository.findByAutoresId(autor_id));
+    }
+
+    /**
+     * Con @Query
+     * Buscar libros con precio inferior a zzz y año de publicacion mayor a yyyyy
+     */
+    @GetMapping("/search/precio-anio")
+    public ResponseEntity<List<BookRef>> buscarPorPrecioYAnio(@RequestParam Double precio, @RequestParam Integer anio){
+        return ResponseEntity.ok(bookRefRepository.buscarPorPrecioInfYAnioSup(precio, anio));
+    }
 
 }
