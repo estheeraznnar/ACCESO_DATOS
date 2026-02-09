@@ -1,0 +1,15 @@
+meta {
+  name: Buscar Por Titulo
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://127.0.0.1:8080/api/books/template/search/titulo?titulo=Don
+  body: none
+  auth: inherit
+}
+
+params:query {
+  titulo: Don
+}

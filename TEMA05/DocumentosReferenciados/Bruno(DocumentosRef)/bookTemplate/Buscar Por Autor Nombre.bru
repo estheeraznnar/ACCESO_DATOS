@@ -1,0 +1,15 @@
+meta {
+  name: Buscar Por Autor Nombre
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://127.0.0.1:8080/api/books/template/search/autor-nombre?nombre=Gabriel
+  body: none
+  auth: inherit
+}
+
+params:query {
+  nombre: Gabriel
+}

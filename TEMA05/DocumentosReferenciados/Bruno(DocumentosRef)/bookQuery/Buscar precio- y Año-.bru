@@ -1,0 +1,16 @@
+meta {
+  name: Buscar precio< y Año>
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://127.0.0.1:8080/api/books/search/precio-anio?precio=20&anio=1950
+  body: none
+  auth: inherit
+}
+
+params:query {
+  precio: 20
+  anio: 1950
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Buscar ecoomicosAntiguos
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://127.0.0.1:8080/api/books/search/economicos-antiguos?precio=15&anio=2000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  precio: 15
+  anio: 2000
+}
