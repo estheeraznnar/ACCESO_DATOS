@@ -1,0 +1,26 @@
+[
+  {
+    "_id": 201,
+    "nombre": "Nintendo Switch",
+    "fabricante": "Nintendo",
+    "año_lanzamiento": 2017
+  },
+  {
+    "_id": 202,
+    "nombre": "PlayStation 5",
+    "fabricante": "Sony",
+    "año_lanzamiento": 2020
+  },
+  {
+    "_id": 203,
+    "nombre": "PC",
+    "fabricante": "Varios",
+    "año_lanzamiento": 1980
+  },
+  {
+    "_id": 204,
+    "nombre": "Xbox Series X",
+    "fabricante": "Microsoft",
+    "año_lanzamiento": 2020
+  }
+]

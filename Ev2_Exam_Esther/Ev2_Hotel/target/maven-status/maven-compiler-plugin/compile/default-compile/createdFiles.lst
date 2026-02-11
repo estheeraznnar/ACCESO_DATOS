@@ -1,0 +1,15 @@
+org\iesch\hotel\modelo\enums\Temporada.class
+org\iesch\hotel\modelo\Habitacion.class
+org\iesch\hotel\modelo\Suplemento.class
+org\iesch\hotel\modelo\enums\Regimen.class
+org\iesch\hotel\modelo\ServicioAdicional.class
+org\iesch\hotel\modelo\enums\TipoServicio.class
+org\iesch\hotel\modelo\Direccion.class
+org\iesch\ad\Ev2_Hotel\Ev2HotelApplication.class
+org\iesch\hotel\modelo\enums\EstadoReserva.class
+org\iesch\hotel\modelo\enums\EstadoHabitacion.class
+org\iesch\hotel\modelo\Cliente.class
+org\iesch\hotel\modelo\enums\TipoHabitacion.class
+org\iesch\hotel\modelo\Factura.class
+org\iesch\hotel\modelo\Reserva.class
+org\iesch\hotel\modelo\enums\MetodoPago.class

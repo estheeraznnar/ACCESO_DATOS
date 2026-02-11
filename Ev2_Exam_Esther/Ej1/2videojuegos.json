@@ -1,0 +1,74 @@
+[
+  {
+    "_id": 101,
+    "titulo": "The Legend of Zelda: Breath of the Wild",
+    "desarrollador_id": 1,
+    "genero": "Aventura",
+    "año_lanzamiento": 2017,
+    "precio": 59.99,
+    "plataforma_id": 201
+  },
+  {
+    "_id": 102,
+    "titulo": "Super Mario Odyssey",
+    "desarrollador_id": 1,
+    "genero": "Plataformas",
+    "año_lanzamiento": 2017,
+    "precio": 59.99,
+    "plataforma_id": 201
+  },
+  {
+    "_id": 103,
+    "titulo": "Grand Theft Auto V",
+    "desarrollador_id": 2,
+    "genero": "Acción",
+    "año_lanzamiento": 2013,
+    "precio": 29.99,
+    "plataforma_id": 202
+  },
+  {
+    "_id": 104,
+    "titulo": "Red Dead Redemption 2",
+    "desarrollador_id": 2,
+    "genero": "Acción-Aventura",
+    "año_lanzamiento": 2018,
+    "precio": 39.99,
+    "plataforma_id": 202
+  },
+  {
+    "_id": 105,
+    "titulo": "The Witcher 3: Wild Hunt",
+    "desarrollador_id": 3,
+    "genero": "RPG",
+    "año_lanzamiento": 2015,
+    "precio": 39.99,
+    "plataforma_id": 203
+  },
+  {
+    "_id": 106,
+    "titulo": "Cyberpunk 2077",
+    "desarrollador_id": 3,
+    "genero": "RPG",
+    "año_lanzamiento": 2020,
+    "precio": 49.99,
+    "plataforma_id": 203
+  },
+  {
+    "_id": 107,
+    "titulo": "Elden Ring",
+    "desarrollador_id": 4,
+    "genero": "RPG-Acción",
+    "año_lanzamiento": 2022,
+    "precio": 59.99,
+    "plataforma_id": 202
+  },
+  {
+    "_id": 108,
+    "titulo": "Dark Souls III",
+    "desarrollador_id": 4,
+    "genero": "RPG-Acción",
+    "año_lanzamiento": 2016,
+    "precio": 39.99,
+    "plataforma_id": 202
+  }
+]

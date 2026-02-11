@@ -1,0 +1,50 @@
+[
+  {
+    "_id": 301,
+    "videojuego_id": 101,
+    "cliente_id": 401,
+    "fecha_compra": "2024-10-15",
+    "precio_pagado": 59.99,
+    "formato": "digital"
+  },
+  {
+    "_id": 302,
+    "videojuego_id": 103,
+    "cliente_id": 402,
+    "fecha_compra": "2024-11-01",
+    "precio_pagado": 29.99,
+    "formato": "fisico"
+  },
+  {
+    "_id": 303,
+    "videojuego_id": 107,
+    "cliente_id": 401,
+    "fecha_compra": "2024-11-10",
+    "precio_pagado": 59.99,
+    "formato": "digital"
+  },
+  {
+    "_id": 304,
+    "videojuego_id": 105,
+    "cliente_id": 403,
+    "fecha_compra": "2024-10-20",
+    "precio_pagado": 39.99,
+    "formato": "digital"
+  },
+  {
+    "_id": 305,
+    "videojuego_id": 102,
+    "cliente_id": 404,
+    "fecha_compra": "2024-11-25",
+    "precio_pagado": 59.99,
+    "formato": "fisico"
+  },
+  {
+    "_id": 306,
+    "videojuego_id": 107,
+    "cliente_id": 402,
+    "fecha_compra": "2024-11-15",
+    "precio_pagado": 59.99,
+    "formato": "digital"
+  }
+]

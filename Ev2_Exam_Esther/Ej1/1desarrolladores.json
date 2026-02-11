@@ -1,0 +1,30 @@
+[
+  {
+    "_id": 1,
+    "nombre": "Nintendo",
+    "pais": "Japón",
+    "fundacion": 1889,
+    "premios": ["Game Awards", "BAFTA"]
+  },
+  {
+    "_id": 2,
+    "nombre": "Rockstar Games",
+    "pais": "Estados Unidos",
+    "fundacion": 1998,
+    "premios": ["Game Awards", "DICE"]
+  },
+  {
+    "_id": 3,
+    "nombre": "CD Projekt Red",
+    "pais": "Polonia",
+    "fundacion": 2002,
+    "premios": ["Game Awards"]
+  },
+  {
+    "_id": 4,
+    "nombre": "FromSoftware",
+    "pais": "Japón",
+    "fundacion": 1986,
+    "premios": ["Game Awards", "BAFTA", "DICE"]
+  }
+]
