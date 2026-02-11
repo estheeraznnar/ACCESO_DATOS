@@ -1,0 +1,147 @@
+A. Blog: consultas básicas y medias
+Colección: blogposts con campos como creador, contenido, likes, tags, comments (array de comentarios con creador, texto, likes, fecha).
+
+	1- Muestra todos los posts del creador "Ana García" que tengan menos de 100 likes.
+		db.blog_post.find({
+			"creador": "Ana García",
+			"likes": {$lte: 100}
+		})
+	2- Muestra los posts que contengan el tag "programacion" y tengan al menos 1 comentario.
+		db.blog_post.find({
+			tags: "programacion",
+			"comments.0": {$exists: true}
+		})
+	3- Muestra solo creador y contenido de los posts que no tienen comentarios.
+
+	4- Muestra los posts donde algún comentario tenga más de 5 likes.
+
+	5- Muestra los posts donde un usuario dado (por ejemplo, "Pedro Ruiz") haya comentado al menos 2 veces en el mismo post.
+	
+	
+	
+	
+Busca productos de la categoría "Electrónica" con precio menor a 1000€. Muestra solo nombre, precio y marca (sin _id).
+	
+	db.productos.find(
+	  {
+		categoria: "Electrónica",
+		precio: { $lt: 1000 }
+	  },
+	  {
+		nombre: 1,
+		precio: 1,
+		"especificaciones.marca": 1,
+		_id: 0
+	  }
+	)
+
+Busca productos que tengan más de 2 valoraciones Y alguna valoración con puntuación igual a 5.
+
+	db.productos.find({
+	  $expr: { $gt: [{ $size: "$valoraciones" }, 2] },
+	  "valoraciones.puntuacion": 5
+	})
+
+	Alternativa sin $expr:
+	db.productos.find({
+	  "valoraciones.2": { $exists: true },  // Tiene al menos 3 (0, 1, 2)
+	  "valoraciones.puntuacion": 5
+	})
+
+Calcula el precio promedio de productos por categoría, ordenado de mayor a menor precio promedio.
+
+	db.productos.aggregate([
+	  {
+		$group: {
+		  _id: "$categoria",
+		  precio_promedio: { $avg: "$precio" },
+		  cantidad_productos: { $count: {} }
+		}
+	  },
+	  {
+		$sort: { precio_promedio: -1 }
+	  }
+	])
+	
+	Con $project para formato más limpio:
+
+	db.productos.aggregate([
+	  {
+		$group: {
+		  _id: "$categoria",
+		  precio_promedio: { $avg: "$precio" },
+		  cantidad_productos: { $count: {} }
+		}
+	  },
+	  {
+		$project: {
+		  categoria: "$_id",
+		  precio_promedio: { $round: ["$precio_promedio", 2] },
+		  cantidad_productos: 1,
+		  _id: 0
+		}
+	  },
+	  {
+		$sort: { precio_promedio: -1 }
+	  }
+	])
+	
+Desenrolla las valoraciones y muestra los 5 usuarios que más comentarios han dejado (cuenta por usuario).
+
+	db.productos.aggregate([
+	  {
+		$unwind: "$valoraciones"
+	  },
+	  {
+		$group: {
+		  _id: "$valoraciones.usuario",
+		  numero_comentarios: { $count: {} }
+		}
+	  },
+	  {
+		$sort: { numero_comentarios: -1 }
+	  },
+	  {
+		$limit: 5
+	  }
+	])
+	
+	Con project para mejor presentación:
+
+	db.productos.aggregate([
+	  {
+		$unwind: "$valoraciones"
+	  },
+	  {
+		$group: {
+		  _id: "$valoraciones.usuario",
+		  numero_comentarios: { $count: {} }
+		}
+	  },
+	  {
+		$project: {
+		  usuario: "$_id",
+		  numero_comentarios: 1,
+		  _id: 0
+		}
+	  },
+	  {
+		$sort: { numero_comentarios: -1 }
+	  },
+	  {
+		$limit: 5
+	  }
+	])
+	
+Añade el tag "oferta" al producto con _id: 3 (sin duplicar si ya existe).
+
+	db.productos.updateOne(
+	  { _id: 3 },
+	  {
+		$addToSet: {
+		  tags: "oferta"
+		}
+	  }
+	)
+	Nota: $addToSet evita duplicados. Si usaras $push se añadiría aunque ya existiera.
+	
